@@ -1,20 +1,15 @@
 package com.fui.ireport;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fui.common.JRUtils;
+import com.fui.entity.Mas;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.fui.common.IreportUtils;
-import com.fui.entity.Mas;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * Servlet implementation class MasReportServlet
@@ -69,6 +64,6 @@ public class MasReportServlet extends HttpServlet {
 		list.add(dataList);
 		ServletContext servletContext = this.getServletConfig().getServletContext();
 		String filePath = servletContext.getRealPath("/jasper/MasReport.jasper");
-		IreportUtils.printToPdfView(response, filePath, params, list);
+		JRUtils.printToPdfView(response, filePath, params, list);
 	}
 }

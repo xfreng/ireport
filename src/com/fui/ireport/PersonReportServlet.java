@@ -1,19 +1,18 @@
 package com.fui.ireport;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fui.common.JRUtils;
+import com.fui.entity.Person;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.fui.common.IreportUtils;
-import com.fui.entity.Person;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Servlet implementation class PersonReportServlet
@@ -65,6 +64,6 @@ public class PersonReportServlet extends HttpServlet {
 
 		ServletContext servletContext = this.getServletConfig().getServletContext();
 		String filePath = servletContext.getRealPath("/jasper/personReport.jasper");
-		IreportUtils.printToPdfView(response, filePath, params, list);
+		JRUtils.printToPdfView(response, filePath, params, list);
 	}
 }

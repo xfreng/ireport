@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class IreportUtils {
+public class JRUtils {
 	
 	public static <T> void printToPdfView(HttpServletResponse response, String filePath, Map<String, Object> params,
 			List<T> list) {
@@ -36,14 +36,14 @@ public class IreportUtils {
 				if (fbos.size() > 0) {
 					response.setContentType("application/pdf");
 					response.setContentLength(fbos.size());
-					ServletOutputStream ouputStream = response.getOutputStream();
+					ServletOutputStream outputStream = response.getOutputStream();
 					try {
-						fbos.writeData(ouputStream);
+						fbos.writeData(outputStream);
 						fbos.dispose();
-						ouputStream.flush();
+						outputStream.flush();
 					} finally {
-						if (null != ouputStream) {
-							ouputStream.close();
+						if (null != outputStream) {
+							outputStream.close();
 						}
 					}
 				}
